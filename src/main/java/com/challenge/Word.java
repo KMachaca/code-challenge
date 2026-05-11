@@ -5,65 +5,68 @@ import java.util.Collections;
 import java.util.List;
 
 public class Word {
-    public String content;
-    List<Character> letters = new ArrayList<>();
+  private String content;
+  private List<Character> capitalLetters = new ArrayList<>();
 
-    public Word(String word) {
-        this.content = word;
+  public Word(String word) {
+    if (word == null) {
+      throw new IllegalArgumentException("Word cannot be null");
     }
-
-    public boolean containsOnlyLetters (){
-        int letterCount = 0;
-        for (int i = 0; i < content.length(); i++) {
-            char character = content.charAt(i);
-            if (Character.isLetter(character)) {
-                letterCount++;
-            }
-        }
-        if (letterCount == content.length()) {
-            return true;
-        }else{
-            return false;
-        }
+    if (word.isEmpty()) {
+      throw new IllegalArgumentException("Word cannot be empty");
     }
+    this.content = word;
+  }
 
-    public void stringToListConversion(){
-        String contentCapitalLetters = content.toUpperCase();
-        for (char letter : contentCapitalLetters.toCharArray()) {
-            letters.add(letter);
-        }
-        //System.out.println(letters);
+  public boolean containsOnlyLetters (){
+    int letterCount = 0;
+    for (int i = 0; i < content.length(); i++) {
+      char character = content.charAt(i);
+      if (Character.isLetter(character)) {
+        letterCount++;
+      }
     }
-
-    public boolean validation(){
-        if (containsOnlyLetters()) {
-            stringToListConversion();
-            return true;
-        }else{
-            System.out.println("You must enter a valid word (only with uppercase or lowercase letters, no spaces, no special characters).");
-            return false;
-        }
+    if (letterCount == content.length()) {
+      return true;
+    }else{
+      return false;
     }
+  }
 
-    public void orderLetters(){
-        Collections.sort(letters);
-        //System.out.println("Word Ordered " + letters);
+  public void stringToListConversion(){
+    String capitalLettersContent = content.toUpperCase();
+    for (char letter : capitalLettersContent.toCharArray()) {
+      capitalLetters.add(letter);
     }
+  }
 
-    public String getContent() {
-        return content;
+  public boolean isValidWord(){
+    if (containsOnlyLetters()) {
+      stringToListConversion();
+      return true;
+    }else{
+      System.out.println("You must enter a valid word (only with uppercase or lowercase letters, no spaces, no special characters).");
+      return false;
     }
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  public void orderLetters(){
+    Collections.sort(capitalLetters);
+  }
 
-    public List<Character> getLetters() {
-        return letters;
-    }
+  public String getContent() {
+    return content;
+  }
 
-    public int length() {
-        return letters.size();
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
 
+  public List<Character> getLetters() {
+    return capitalLetters;
+  }
+
+  public int length() {
+    return capitalLetters.size();
+  }
 }

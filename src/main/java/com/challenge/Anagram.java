@@ -1,48 +1,44 @@
 package com.challenge;
 
 public class Anagram {
-    Word orderedWord1; 
-    Word orderedWord2; 
+  private Word firstOrderedWord; 
+  private Word secondOrderedWord; 
 
-    public Anagram (Word orderedWord1, Word orderedWord2){
-        this.orderedWord1 = orderedWord1;
-        this.orderedWord2 = orderedWord2;
+  public Anagram (Word orderedWord1, Word orderedWord2){
+    this.firstOrderedWord = orderedWord1;
+    this.secondOrderedWord = orderedWord2;
+  }
+
+  public boolean sameLength (){
+    if (firstOrderedWord.length() == secondOrderedWord.length()) {
+      return true;
+    } else {
+      return false;
     }
+  }
 
-    public boolean compareLength (){
-        if (orderedWord1.length() == orderedWord2.length()) {
-            System.out.println("same lenght " + orderedWord1.length() + orderedWord2.length());
-            return true;
-        } else {
-            System.out.println("different lenght " + orderedWord1.length() + orderedWord2.length());
-            return false;
+  public void compareEachLetter (){
+    boolean sameLetter = false;
+      for (int i = 0; i < firstOrderedWord.length(); i++) {
+        char characterFirstWord = firstOrderedWord.getLetters().get(i);
+        char characterSecondWord = secondOrderedWord.getLetters().get(i);
+        if (Character.compare(characterFirstWord, characterSecondWord) != 0) {
+          sameLetter = true;
+          break;
         }
     }
-
-    public void compareEachLetter (){
-        boolean flag = false;
-        for (int i = 0; i < orderedWord1.length(); i++) {
-            char characterWord1 = orderedWord1.getLetters().get(i);
-            char characterWord2 = orderedWord2.getLetters().get(i);
-            if (Character.compare(characterWord1, characterWord2) != 0) {
-                System.out.println(characterWord1 + " compare " + characterWord2);
-                flag = true;
-                break;
-            }
-        }
-        if (!flag) {
-            System.out.println("The words are anagrams.");
-        } else {
-            System.out.println("The words are not anagrams.");
-        }
+    if (!sameLetter) {
+      System.out.println("Result: The words are anagrams.");
+    } else {
+      System.out.println("Result: The words are not anagrams.");
     }
+  }
 
-    public void compareWords (){
-        if (compareLength()) {
-            compareEachLetter();
-        } else {
-            System.out.println("The words are not anagrams.");
-        }
+  public void isAnagram (){
+    if (sameLength()) {
+      compareEachLetter();
+    } else {
+      System.out.println("Result: The words are not anagrams.");
     }
-
+  }
 }
