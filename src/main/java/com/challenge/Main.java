@@ -19,13 +19,14 @@ public class Main {
                     System.out.println("Processing ... ");
                     Word1.orderLetters();
                     Word2.orderLetters();
+                    Anagram anagram1 = new Anagram(Word1, Word2);
+                    anagram1.compareWords();
                 }else {
-                    System.out.println("Not Processing ... ");
+                    //System.out.println("Not Processing ... ");
                 }
             }else {
-                System.out.println("Not Processing ... ");
+                //System.out.println("Not Processing ... ");
             }
-             
         }catch (Exception e) {
             System.out.println("An error occurred " + e);
         }

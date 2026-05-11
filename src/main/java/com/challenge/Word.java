@@ -32,7 +32,7 @@ public class Word {
         for (char letter : contentCapitalLetters.toCharArray()) {
             letters.add(letter);
         }
-        System.out.println(letters);
+        //System.out.println(letters);
     }
 
     public boolean validation(){
@@ -47,7 +47,23 @@ public class Word {
 
     public void orderLetters(){
         Collections.sort(letters);
-        System.out.println("Word Ordered " + letters);
+        //System.out.println("Word Ordered " + letters);
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public List<Character> getLetters() {
+        return letters;
+    }
+
+    public int length() {
+        return letters.size();
     }
 
 }
