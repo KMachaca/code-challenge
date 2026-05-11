@@ -1,6 +1,7 @@
 package com.challenge;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Word {
@@ -27,18 +28,26 @@ public class Word {
     }
 
     public void stringToListConversion(){
-        for (char letter : content.toCharArray()) {
+        String contentCapitalLetters = content.toUpperCase();
+        for (char letter : contentCapitalLetters.toCharArray()) {
             letters.add(letter);
         }
         System.out.println(letters);
     }
 
-    public void validation(){
+    public boolean validation(){
         if (containsOnlyLetters()) {
             stringToListConversion();
+            return true;
         }else{
             System.out.println("You must enter a valid word (only with uppercase or lowercase letters, no spaces, no special characters).");
+            return false;
         }
+    }
+
+    public void orderLetters(){
+        Collections.sort(letters);
+        System.out.println("Word Ordered " + letters);
     }
 
 }
