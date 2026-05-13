@@ -29,4 +29,6 @@ public class Main {
   }
 }
 
+// Funcion 1: saludo
+System.out.println("Hola mundo");
 
