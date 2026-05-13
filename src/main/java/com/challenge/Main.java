@@ -30,7 +30,7 @@ public class Main {
 }
 
 // Funcion 1: saludo
-System.out.println("Hola mundo");
+System.out.println("Version A - rama titulo-A");
 
 // Funcion 2: despedida
 System.out.println("Adios mundo");
