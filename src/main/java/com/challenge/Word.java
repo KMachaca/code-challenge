@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Word {
+  //Add login button to home page
   private String content;
   private List<Character> capitalLetters = new ArrayList<>();
 
