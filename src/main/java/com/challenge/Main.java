@@ -30,7 +30,7 @@ public class Main {
 }
 
 // Funcion 1: saludo
-System.out.println("Rebase Final - conflict resolved");
+System.out.println("Rebase A");
 
 // Funcion 2: despedida
 System.out.println("Adios mundo");
